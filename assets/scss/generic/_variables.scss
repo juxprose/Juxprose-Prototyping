@@ -1,0 +1,87 @@
+/*==============================================================
+
+Variables
+
+File: SCSS Partial (/scss/generic/_variables.scss)
+Compiled to: css/global.css
+Created: 16/11/2013
+Updated: 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Description: All variables
+Author: David Flindall
+Author URI: http://juxprose.com
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+
+/* Base
+  -------------------------------------------------------- */
+
+  $base-clr: rgb(0,0,0);
+  $base-fnt: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif; 
+  $base-fnt-weight: 400;
+  $base-fnt-style: normal;
+  $base-fnt-size: 16px;
+  $base-line-height: 1.5;   
+  $space: 1em;
+
+
+/* Colors
+   Sample colors from http://flatuicolors.com/ 
+  -------------------------------------------------------- */ 
+
+  $clr-primary: rgb(127, 140, 141); // Concrete #7f8c8d 
+  $clr-secondary: rgb(149, 165, 166); // Asbestos #95a5a6
+  $clr-tert: rgb(189, 195, 199); // Silver #bdc3c7
+
+  $clr-keyline: rgb(189, 195, 199); // Silver #bdc3c7
+  $clr-bckgrd: rgb(236, 240, 241); // Clouds #ecf0f1 
+  $clr-utility: rgb(127, 140, 141); // Concrete #7f8c8d 
+  $clr-field: rgb(255, 255, 255); // White #ffffff
+
+
+/* Fonts
+  -------------------------------------------------------- */ 
+
+  $fnt-text: 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif; 
+  $fnt-heading: HelveticaNeueLT-UltraLight;
+  $fnt-bold: 300;
+
+  // Sizes
+  @function em($target, $context: $base-fnt-size) {
+     @if $target == 0 { @return 0 }
+     @return $target / $context + 0em;
+  }
+
+  $fnt-giga: em(56px, 16px);
+  $fnt-xlrg: em(36px, 16px);
+  $fnt-lrg: em(26px, 16px);
+  $fnt-med: em(18px, 16px);
+  $fnt-reg: em(14px, 16px);
+  $fnt-sml: em(12px, 16px);
+  $fnt-xsml: em(12px, 16px);
+  $fnt-header: em(22px, 16px);
+
+
+/* Layout
+  -------------------------------------------------------- */ 
+
+  $max-width: 64.000em;
+
+
+/* Breakpoints
+  -------------------------------------------------------- */
+
+  $bp-sml: "only screen and (max-width: 480px)"; // 480px
+  $bp-tab: "only screen and (min-width: 30.063em) and (max-width: 47.938em)"; // 481px and 767px
+  $bp-med: "only screen and (min-width: 48.000em) and (max-width: 63.938em)"; // 768px and 1023px
+  $bp-lrg: "only screen and (min-width: 64.000em)"; // 1024px
+
+  $bp-sml-up: "only screen and (min-width: 481px)"; // 481px
+
+  //@media #{$small} {
+  //  background: red;
+  // }  

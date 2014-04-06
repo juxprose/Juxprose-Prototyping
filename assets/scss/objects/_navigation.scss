@@ -1,0 +1,181 @@
+/*==============================================================
+
+Navigation
+
+File: SCSS Partial (/scss/partials/_navigation.scss)
+Compiled to: css/global.css
+Created: 16/11/2013
+Updated: 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Description: Primary, secondary & tertiary navigations
+Author: David Flindall
+Author URI: http://juxprose.com
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+
+
+
+/* Menus
+  -------------------------------------------------------- */
+
+  nav {
+  	list-style-type: none;
+  }
+
+	.menu {
+
+		a {
+			text-decoration: none;	
+		}
+	}
+
+	.menu-inline {
+
+		> li {
+			display: inline-block;
+			margin-right: $space;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			a {
+				@include links-secondary;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.menu-stacked {
+
+		> li {
+			margin-bottom: $space/4;
+			padding-bottom: $space/4;
+			position: relative;
+			line-height: 18px;
+		}
+	}
+
+	.menu-blocks {
+
+		> li {
+			float: left;
+			margin-right: $space/2;
+
+			&:last-child {
+				margin-right: 0;
+			}
+	
+			a {
+				@include links-primary;
+				@include inline-block;
+				@include single-transition(all, 0.2s, ease-in-out);			
+				background: $clr-utility;
+				padding: $space/2 $space;	
+				font-weight: $fnt-bold;	
+				margin-bottom: $space/2;
+				text-decoration: none;	
+
+				#contents & {
+					padding: $space*2;
+				}
+
+				&:hover {
+					background-color: lighten($base-clr, 20%);
+				}
+			}
+
+	  	// Wordpress on-states
+	  	&.current-menu-item, &.current_page_item, &.current-page-ancestor, &.current-post-ancestor, &.current-menu-parent &.current-post-parent {
+				background-color: lighten($base-clr, 20%);
+			}
+
+		}											
+	}
+
+	.menu-breadcrumb {
+		font-size: $fnt-sml;
+	}
+
+	.menu-tags {
+		font-size: $fnt-reg;
+		border-top: 1px solid $clr-keyline;
+		padding-top: $space;
+	}
+
+  /* Site navigation
+  -------------------------------------------------------- */
+
+	.main-navigation {
+		@media #{$bp-lrg} {
+			float: right;
+		}
+	}
+
+
+
+
+  /* Responsive site menu
+  -------------------------------------------------------- */
+
+		// Toggle - all
+		a.menu-link {
+			@include inline-block;
+			background: $clr-utility;
+			color: rgb(255,255,255);
+			clear: both;
+			padding: 14px;
+			text-decoration: none;
+
+			&:hover {
+				background: invert($clr-utility);
+			}
+		}
+
+		// Main nav - all
+    nav[role=navigation] {
+      clear: both;
+      -webkit-transition: all 0.3s ease-out;  
+      -moz-transition: all 0.3s ease-out;
+      -ms-transition: all 0.3s ease-out;
+      -o-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+		.js nav[role=navigation] {
+			overflow: hidden;
+			max-height: 0;
+		}
+
+    nav[role=navigation].active {
+      max-height: 20em;
+    }
+
+    nav[role=navigation] li {
+      @media #{$bp-sml} {
+				width: 100%;
+				float: none;
+      }
+
+      a {
+	      @media #{$bp-sml} {
+					display: block;
+	      }      	
+      }
+    }
+
+		// Medium > screens
+    @media #{$bp-sml-up} {
+       
+	    a.menu-link {
+	      display: none;
+	    }
+
+	    .js nav[role=navigation] {
+	      max-height: none;
+	    }
+    }	
